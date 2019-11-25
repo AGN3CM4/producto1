@@ -208,10 +208,19 @@ bool ArbolP::eliminaNodo(int d)
 bool ArbolP::eliminaNodo(NodoA* nP,NodoA* r,int d)
 {
 
+if(d==r->dameDato() && r->dameIzq()==NULL && r->dameDer()==NULL){
+        delete r;
 
+        if(nP==NULL)
+            raiz=NULL;
+        else if(r==nP->dameIzq())
+            nP->modificaIzq(NULL);
+        else
+            nP->modificaDer(NULL);
+
+        return true;
 
 }
-
 
 
 
